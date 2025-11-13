@@ -9,7 +9,7 @@ It includes a complete ML pipeline, interactive UI, and production-grade API.
 ## 🚀 Live Demo
 
 ### 🔹 Frontend (Streamlit App)  
-**https://customer-churn-prediction-system-crgcyc4xjy3aurhhwjzgta.streamlit.app/**
+**https://customer-churn-prediction-system-q4wjmmfuyc4wukkffro2pz.streamlit.app/**
 
 ### 🔹 Backend API (FastAPI - Render)  
 **https://customer-churn-prediction-system-yoa6.onrender.com/docs**
