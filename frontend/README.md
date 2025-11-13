@@ -1,236 +1,208 @@
-# Customer Churn Prediction - Frontend
+# 🎨 Customer Churn Prediction – Frontend (Streamlit App)
 
-Beautiful Streamlit web application for predicting customer churn.
+Beautiful, modern, and interactive Streamlit web application for predicting **customer churn**.  
+This frontend communicates with a FastAPI backend to deliver real-time and batch predictions.
 
-## Features
+---
 
-- 🎨 **Modern UI**: Beautiful, gradient-based design with custom styling
-- 🔮 **Single Prediction**: Predict churn for individual customers
-- 📊 **Batch Prediction**: Upload CSV for multiple predictions
-- 📈 **Model Info**: View model performance and metrics
-- 🎯 **Interactive Visualizations**: Plotly charts and gauges
-- 🚦 **Risk Classification**: Color-coded risk levels (Low/Medium/High)
-- 📥 **Export Results**: Download prediction results as CSV
+## ✨ Features
 
-## Installation
+### 🔮 Single Prediction
+- Predict churn for **one customer**
+- Clean and interactive form
+- Probability gauge visualization
+- Color‑coded risk level (🟢 Low • 🟡 Medium • 🔴 High)
 
-Make sure you have all dependencies installed:
+### 📊 Batch Prediction
+- Upload CSV files
+- Batch churn prediction for **hundreds of customers**
+- Pie chart, bar chart & histogram analytics
+- Downloadable prediction results
+
+### 📈 Model Info Page
+- Model metadata
+- Performance metrics
+- Radar chart visualization
+- Model comparison table
+
+### 🎨 Beautiful UI
+- Gradient themed UI
+- Custom CSS for enhanced visuals
+- Fully responsive layouts
+- Smooth animations & modern aesthetics
+
+---
+
+## 🚀 Installation
+
+### Install dependencies:
 
 ```bash
 pip install streamlit plotly requests pandas
 ```
 
-Or install from project root:
+Or install everything from project root:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Running the Application
+---
 
-### Step 1: Start the Backend API
+## ▶️ Running the Frontend App
 
-First, make sure the FastAPI backend is running:
+### **Step 1 — Make sure the backend API is running**
 
 ```bash
-# From project root
 uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### Step 2: Start the Streamlit App
+### **Step 2 — Run the Streamlit app**
 
-In a new terminal, run:
+From project root:
 
 ```bash
-# From project root
 streamlit run frontend/app.py
 ```
 
-Or:
+Or from inside the frontend folder:
 
 ```bash
-# From frontend directory
 cd frontend
 streamlit run app.py
 ```
 
-The app will open automatically in your browser at `http://localhost:8501`
+App opens at:
 
-## Usage
+📍 **http://localhost:8501**
 
-### 🏠 Home Page
-- Overview of the system
-- Key performance metrics
-- Project insights
+---
 
-### 🔮 Single Prediction
-1. Fill in customer details in the form
-2. Click "Predict Churn"
-3. View probability gauge and risk level
-4. Get recommended actions
+## ⚙️ API Configuration
 
-### 📊 Batch Prediction
-1. Download the CSV template
-2. Fill in customer data
-3. Upload the CSV file
-4. Click "Run Batch Prediction"
-5. View analytics and download results
+The app connects to this backend API:
 
-### 📈 Model Info
-- View model performance metrics
-- See radar chart visualization
-- Compare different ML models
-
-## Pages Overview
-
-### Home Page
-- Key metrics display (ROC-AUC, Accuracy, Features, Model)
-- System features and benefits
-- Key insights from data analysis
-- Getting started guide
-
-### Single Prediction Page
-- Interactive form with all customer fields
-- Real-time prediction with probability gauge
-- Risk level visualization (High/Medium/Low)
-- Actionable recommendations based on risk
-
-### Batch Prediction Page
-- CSV file upload
-- Template download
-- Batch processing for multiple customers
-- Risk distribution charts (pie & bar)
-- Probability distribution histogram
-- Filterable results table
-- Export results to CSV
-
-### Model Info Page
-- Model details and metadata
-- Performance metrics cards
-- Radar chart visualization
-- Model comparison table
-- Training date and features count
-
-## Features & Benefits
-
-### Visual Design
-- **Gradient backgrounds**: Modern, professional look
-- **Custom CSS styling**: Enhanced UI components
-- **Responsive layout**: Works on different screen sizes
-- **Color-coded risks**: Easy identification (🟢🟡🔴)
-
-### Interactive Elements
-- **Probability gauge**: Visual representation of churn risk
-- **Dynamic charts**: Plotly interactive visualizations
-- **Real-time updates**: Instant predictions
-- **Smooth animations**: Enhanced user experience
-
-### Data Handling
-- **CSV template**: Easy data preparation
-- **Batch processing**: Handle multiple customers
-- **Data filtering**: Filter results by risk/churn
-- **Export capability**: Download predictions as CSV
-
-## API Configuration
-
-The app connects to the FastAPI backend at:
 ```python
 API_URL = "http://localhost:8000"
 ```
 
-To change this, modify the `API_URL` variable in `app.py`.
+To modify it, edit the `API_URL` variable inside **app.py**.
 
-## Screenshots
+---
 
-### Home Page
-- Clean, modern interface
-- Key metrics at a glance
-- Quick navigation
+## 📁 Project Structure (Frontend Only)
 
-### Single Prediction
-- Intuitive form layout
-- Beautiful probability gauge
-- Clear risk indication
+```
+frontend/
+│
+├── app.py         # Main Streamlit application
+├── README.md      # This documentation
+└── (assets)       # Future images, styles, etc.
+```
 
-### Batch Prediction
-- Easy CSV upload
+---
+
+## 🏠 Pages Included
+
+### **Home Page**
+- Overview of system
+- Key insights section
+- Project highlights
+
+### **Single Prediction**
+- Interactive form for input
+- Model prediction visualization
+- Risk classification
+
+### **Batch Prediction**
+- CSV uploader
 - Rich analytics dashboard
-- Comprehensive results table
+- Downloadable results
 
-## Troubleshooting
+### **Model Info**
+- Metrics cards
+- Radar chart
+- Comparison table
 
-### API Connection Error
-If you see "Cannot connect to the API":
-1. Make sure the backend is running: `uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000`
-2. Check if `http://localhost:8000/health` returns a response
-3. Verify API_URL in `app.py` is correct
+---
 
-### Import Errors
-If you get module import errors:
+## 📉 Visual Features
+
+- 🔵 Probability gauge meter  
+- 🟠 Interactive Plotly visuals  
+- 🟣 Pie charts  
+- 🟩 Bar charts  
+- 🟦 Histograms  
+- 🟪 Styled metric cards  
+
+---
+
+## 🛠️ Troubleshooting
+
+### ❌ API Connection Error
+- Backend not running
+- Wrong API_URL
+- Firewall blocking 8000 port
+
+### ❌ Import Errors
+Run:
+
 ```bash
 pip install streamlit plotly requests pandas
 ```
 
-### Port Already in Use
-If port 8501 is busy:
+### ❌ Port Already In Use
+Run Streamlit on alternate port:
+
 ```bash
-streamlit run frontend/app.py --server.port 8502
+streamlit run app.py --server.port 8502
 ```
-
-## Dependencies
-
-- **streamlit**: Web application framework
-- **plotly**: Interactive visualizations
-- **requests**: API communication
-- **pandas**: Data manipulation
-
-## Customization
-
-### Change Colors
-Edit the CSS in the `st.markdown()` section at the top of `app.py`:
-```python
-st.markdown("""<style>...</style>""", unsafe_allow_html=True)
-```
-
-### Modify Risk Thresholds
-Update the `get_risk_color()` function to change risk colors.
-
-### Add New Pages
-Add new functions like `show_new_page()` and update the navigation radio buttons.
-
-## Performance
-
-- **Fast predictions**: Real-time response
-- **Efficient batch processing**: Handles large CSV files
-- **Smooth rendering**: Optimized Plotly charts
-- **Responsive UI**: Quick page loads
-
-## Best Practices
-
-1. **Always start backend first** before launching Streamlit
-2. **Use CSV template** for batch predictions
-3. **Check API status** in sidebar
-4. **Download results** for record-keeping
-
-## Future Enhancements
-
-Potential improvements:
-- [ ] User authentication
-- [ ] Historical predictions tracking
-- [ ] Advanced filtering options
-- [ ] More visualization types
-- [ ] Dark mode toggle
-- [ ] Multi-language support
-
-## Support
-
-For issues or questions:
-1. Check backend is running
-2. Verify all dependencies are installed
-3. Review browser console for errors
-4. Check API health endpoint
 
 ---
 
-**Enjoy predicting customer churn with style! 🚀**
+## 🔧 Customization
+
+### 🎨 Change Colors & Theme
+Modify CSS block at the top of `app.py`:
+
+```python
+st.markdown("""<style> ... </style>""", unsafe_allow_html=True)
+```
+
+### 🚦 Update Risk Thresholds
+Edit the `get_risk_color()` function to adjust categories.
+
+### 📄 Add New Pages
+Create new functions and add to the sidebar navigation.
+
+---
+
+## 📦 Dependencies
+
+- Streamlit  
+- Plotly  
+- Requests  
+- Pandas  
+
+---
+
+## 🚀 Performance
+- Real-time prediction  
+- Smooth UI rendering  
+- Efficient large CSV processing  
+- Optimized charts  
+
+---
+
+## ⭐ Author
+
+Made by **Crystal Jain**
+
+🔗 GitHub: https://github.com/crystaljain27  
+🔗 LinkedIn: https://www.linkedin.com/in/crystal-jain-b10025264  
+
+---
+
+## ⭐ Support  
+If you found this useful, please ⭐ the repo!
 
