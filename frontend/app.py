@@ -87,7 +87,7 @@ st.markdown(
 )
 
 # API Configuration
-API_URL = "http://localhost:8000"
+API_URL = "https://customer-churn-prediction-system-j4zm.onrender.com"
 
 
 
