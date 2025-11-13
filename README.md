@@ -1,223 +1,118 @@
-# 🧠 Customer Churn Prediction System
-An end-to-end Customer Churn Prediction System built with Machine Learning, FastAPI, and Streamlit, developed by Crystal Jain.
+# ⭐ Customer Churn Prediction System  
+An end‑to‑end machine learning application that predicts telecom customer churn using a fully deployed **FastAPI backend** and **Streamlit frontend**.
 
-This project delivers a complete production-ready pipeline capable of:
-
-🔍 Analyzing customer behavior patterns
-
-🔮 Predicting churn probability for telecom customers
-
-⚡ Serving real-time predictions through a high-performance FastAPI backend
-
-🧠 Batch processing thousands of customer records at once
-
-🎨 Providing an elegant, user-friendly Streamlit web interface
-
-🧱 Ensuring modular, scalable, and maintainable architecture
-
-The system integrates data preprocessing, feature engineering, model management, and interactive visualization, making it suitable for enterprise use cases, academic projects, and portfolio demonstrations.
+This project was built and documented by **Sanjay Singh Rawat**.  
+It includes a complete ML pipeline, interactive UI, and production-grade API.
 
 ---
 
 ## 🚀 Live Demo
 
-### 🔹 Frontend (Streamlit App)
-https://customer-churn-prediction-system-crgcyc4xjy3aurhhwjzgta.streamlit.app/
+### 🔹 Frontend (Streamlit App)  
+**https://customer-churn-prediction-system-crgcyc4xjy3aurhhwjzgta.streamlit.app/**
 
-### 🔹 Backend API (FastAPI on Render)
-https://customer-churn-prediction-system-j4zm.onrender.com/docs
-
----
-
-## 🧩 Overview
-Customer churn is a major challenge for telecom and subscription-based companies.  
-This project provides a complete ML-driven solution capable of:
-
-- ✔️ Predicting customer churn  
-- ✔️ Handling real-time & batch predictions  
-- ✔️ Serving predictions through FastAPI  
-- ✔️ User-friendly Streamlit interface  
-- ✔️ Fully deployed using Render + Streamlit Cloud  
+### 🔹 Backend API (FastAPI - Render)  
+**https://customer-churn-prediction-system-yoa6.onrender.com/docs**
 
 ---
 
-## ✨ Key Features
+## 📌 Overview  
+This project solves the business problem of **customer churn prediction** using:
 
-### 🔹 Machine Learning
+- A trained XGBoost model  
+- A preprocessing pipeline (encoding, scaling, feature handling)  
+- A REST API built with FastAPI  
+- A user‑friendly interface built in Streamlit  
+- Fully deployed cloud services  
+
+---
+
+## ✨ Features  
+
+### 🔹 Machine Learning  
 - XGBoost classification model  
-- Full preprocessing pipeline  
-- Label encoding  
-- Scaling  
-- Model artifacts stored for production  
+- Preprocessing (Label Encoding, Standard Scaling)  
+- Feature metadata + model artifacts  
+- Robust batch processing
 
-### 🔹 FastAPI Backend
-- `/predict` → Single prediction  
-- `/batch/predict` → CSV batch prediction  
-- Auto-generated API docs  
-- Pydantic-based validation  
-- Clean modular architecture  
+### 🔹 Backend (FastAPI)  
+- `/predict` — Single customer prediction  
+- `/predict/batch` — CSV batch prediction  
+- `/model/info` — Returns model metadata  
+- `/health` — API health check  
+- Automatic Swagger UI documentation  
+- Modular and clean architecture  
 
-### 🔹 Streamlit Frontend
-- Clean UI  
-- Real-time churn prediction  
-- Batch CSV upload  
-- Shows probability + final label  
+### 🔹 Frontend (Streamlit)  
+- Interactive form for single predictions  
+- CSV upload for batch predictions  
+- Probability gauges  
+- Risk classification  
+- Analytics visualization  
+- Downloadable results  
 
-### 🔹 Deployment Ready
-- Docker support  
-- Render backend hosting  
-- Streamlit Cloud frontend hosting  
-
----
-
-## 🧱 Tech Stack
-
-### **Machine Learning:**  
-XGBoost, Pandas, NumPy  
-
-### **Backend:**  
-FastAPI, Uvicorn  
-
-### **Frontend:**  
-Streamlit  
-
-### **Deployment:**  
-Render, Streamlit Cloud, GitHub  
+### 🔹 Deployment  
+- Backend deployed using **Render (Docker)**  
+- Frontend deployed using **Streamlit Cloud**  
+- Production-ready environment  
 
 ---
 
-## 🏗️ Architecture
-
-```
-               ┌────────────────────┐
-               │   Streamlit UI     │
-               │   (Frontend)       │
-               └─────────┬──────────┘
-                        │ REST API
-                        ▼
-        ┌─────────────────────────────────┐
-        │           FastAPI               │
-        │      (Backend Service)          │
-        ├─────────────────────────────────┤
-        │ Preprocessing  | Model Loader   │
-        │ Feature Scaling| XGBoost Model  │
-        └─────────────────┬───────────────┘
-                          │
-                          ▼
-               ┌───────────────────┐
-               │  ML Artifacts     │
-               │  encoders.pkl     │
-               │  scaler.pkl       │
-               │  xgboost.pkl      │
-               └───────────────────┘
-```
+## 🧱 Tech Stack  
+- **XGBoost, Pandas, NumPy**  
+- **FastAPI, Uvicorn**  
+- **Streamlit, Plotly**  
+- **Docker, Render, Streamlit Cloud**
 
 ---
 
-## 📂 Project Structure
+## 📂 Folder Structure  
 
 ```
 Customer-Churn-Prediction-System/
 │
 ├── backend/
-│   ├── api/routes.py
-│   ├── core/config.py
-│   ├── core/model_loader.py
-│   ├── services/preprocessing.py
-│   ├── services/prediction.py
+│   ├── api/
+│   ├── core/
+│   ├── services/
 │   └── main.py
 │
 ├── frontend/
 │   └── app.py
 │
 ├── models/
-│   ├── scaler.pkl
-│   ├── label_encoders.pkl
-│   ├── feature_names.pkl
-│   ├── model_metadata.pkl
-│   └── xgboost_model.pkl
-│
 ├── data/
-│   └── IT_customer_churn.csv
-│
-├── requirements.txt
 ├── Dockerfile
-├── README.md
-└── uv.lock
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-## 📡 API Endpoints
+## 🛠️ Running Locally  
 
-### 🔹 Health Check
-`GET /` → Returns API status
-
-### 🔹 Single Prediction  
-`POST /predict`
-
-**Example Request:**
-```json
-{
-  "gender": "Male",
-  "SeniorCitizen": 0,
-  "Partner": "Yes",
-  "Dependents": "No",
-  "tenure": 12,
-  "PhoneService": "Yes",
-  "InternetService": "Fiber optic",
-  "Contract": "Month-to-month",
-  "PaymentMethod": "Electronic check",
-  "MonthlyCharges": 70.5,
-  "TotalCharges": 840.3
-}
+### 1️⃣ Clone the repository  
+```
+git clone https://github.com/sanjayrawatt/Customer-Churn-Prediction-System.git
 ```
 
-### 🔹 Batch Prediction  
-`POST /batch/predict`
-
-Upload a CSV → Returns churn predictions.
-
----
-
-## 📘 Dataset
-Dataset includes:
-
-- Demographics  
-- Contract details  
-- Billing  
-- Internet & phone services  
-- Usage behavior  
-
----
-
-## 🛠️ Run Locally
-
-### 1️⃣ Clone the repo
-```
-git clone https://github.com/crystaljain27/Customer-Churn-Prediction-System.git
-```
-
-### 2️⃣ Start backend
+### 2️⃣ Start Backend  
 ```
 cd backend
-uvicorn main:app --reload
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### 3️⃣ Start frontend
+### 3️⃣ Start Frontend  
 ```
 streamlit run frontend/app.py
 ```
 
 ---
 
-## 👤 Author
-Built by **Crystal Jain**  
-
-- GitHub: https://github.com/crystaljain27  
-- LinkedIn: https://www.linkedin.com/in/crystal-jain-b10025264  
+## 👤 Author  
+Built and maintained by **Sanjay Singh Rawat**.
 
 ---
 
-## ⭐ Support
-If you like this project, please ⭐ star the repository!
+## ⭐ Support  
+If you like this project, consider giving it a **⭐ star on GitHub**!
